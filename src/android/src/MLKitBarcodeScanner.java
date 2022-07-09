@@ -34,6 +34,7 @@ public class MLKitBarcodeScanner extends CordovaPlugin {
   private Boolean _VibrateOnSuccess;
   private MediaPlayer _MediaPlayer;
   private Vibrator _Vibrator;
+
   public void initialize(CordovaInterface cordova, CordovaWebView webView) {
     super.initialize(cordova, webView);
 
@@ -114,12 +115,12 @@ public class MLKitBarcodeScanner extends CordovaPlugin {
             _MediaPlayer.start();
           }
 
-          if (_VibrateOnSuccess) {
+          if (_VibrateOnSuccess && !barcodeValue.equals("-1")) {
             Integer duration = 200;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
               _Vibrator.vibrate(VibrationEffect.createOneShot(duration, VibrationEffect.DEFAULT_AMPLITUDE));
             } else {
-              //deprecated in API 26
+              // deprecated in API 26
               _Vibrator.vibrate(duration);
             }
           }

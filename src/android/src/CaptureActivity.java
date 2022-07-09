@@ -12,6 +12,7 @@ import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
 import android.graphics.RectF;
+import android.os.Build;
 import android.os.Bundle;
 
 import android.view.GestureDetector;
@@ -20,6 +21,8 @@ import android.view.ScaleGestureDetector;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.Window;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
@@ -77,6 +80,7 @@ public class CaptureActivity extends AppCompatActivity implements SurfaceHolder.
 
   private static final int RC_HANDLE_CAMERA_PERM = 2;
   private ImageButton _TorchButton;
+  private ImageButton _CloseButton;
   private Camera camera;
 
   private ScaleGestureDetector _ScaleGestureDetector;
@@ -86,6 +90,8 @@ public class CaptureActivity extends AppCompatActivity implements SurfaceHolder.
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(getResources().getIdentifier("capture_activity", "layout", getPackageName()));
+
+    transparentStatusAndNavigation();
 
     // Create the bounding box
     surfaceView = findViewById(getResources().getIdentifier("overlay", "id", getPackageName()));
@@ -116,6 +122,7 @@ public class CaptureActivity extends AppCompatActivity implements SurfaceHolder.
     _ScaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
 
     _TorchButton = findViewById(getResources().getIdentifier("torch_button", "id", this.getPackageName()));
+    _CloseButton = findViewById(getResources().getIdentifier("cancel_button", "id", this.getPackageName()));
 
     _TorchButton.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -129,6 +136,18 @@ public class CaptureActivity extends AppCompatActivity implements SurfaceHolder.
           camera.getCameraControl().enableTorch(!state);
         }
 
+      }
+    });
+
+    _CloseButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        _CloseButton.setBackgroundResource(getResources().getIdentifier("close_active",
+            "drawable", CaptureActivity.this.getPackageName()));
+        Intent data = new Intent();
+        data.putExtra(BarcodeValue, "-1");
+        setResult(CommonStatusCodes.SUCCESS, data);
+        finish();
       }
     });
 
@@ -442,5 +461,36 @@ public class CaptureActivity extends AppCompatActivity implements SurfaceHolder.
       holder.unlockCanvasAndPost(canvas);
     }
 
+  }
+
+  private void transparentStatusAndNavigation() {
+    // make full transparent statusBar
+    if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 21) {
+      setWindowFlag(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
+          | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, true);
+    }
+    if (Build.VERSION.SDK_INT >= 19) {
+      getWindow().getDecorView().setSystemUiVisibility(
+          View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+              | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+              | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
+    }
+    if (Build.VERSION.SDK_INT >= 21) {
+      setWindowFlag(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
+          | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, false);
+      getWindow().setStatusBarColor(Color.TRANSPARENT);
+      getWindow().setNavigationBarColor(Color.TRANSPARENT);
+    }
+  }
+
+  private void setWindowFlag(final int bits, boolean on) {
+    Window win = getWindow();
+    WindowManager.LayoutParams winParams = win.getAttributes();
+    if (on) {
+      winParams.flags |= bits;
+    } else {
+      winParams.flags &= ~bits;
+    }
+    win.setAttributes(winParams);
   }
 }
