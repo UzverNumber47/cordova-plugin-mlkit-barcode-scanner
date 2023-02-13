@@ -58,17 +58,17 @@
     <header-file src="src/ios/CameraViewController.h" />
     <source-file src="src/ios/CameraViewController.m" />
     <resource-file src="src/ios/Sounds/beep.caf" />
-    <resource-file src="src/ios/de.lproj/Localizable.strings"
+    <resource-file src="src/ios/en.lproj/Localizable.strings"
       target="en.lproj/Localizable.strings" />
-    <resource-file src="src/ios/en.lproj/Localizable.strings"
+    <resource-file src="src/ios/de.lproj/Localizable.strings"
       target="de.lproj/Localizable.strings" />
-       <resource-file src="src/ios/de.lproj/Localizable.strings"
+       <resource-file src="src/ios/fr.lproj/Localizable.strings"
       target="fr.lproj/Localizable.strings" />
-    <resource-file src="src/ios/en.lproj/Localizable.strings"
+    <resource-file src="src/ios/pl.lproj/Localizable.strings"
       target="pl.lproj/Localizable.strings" />
-       <resource-file src="src/ios/de.lproj/Localizable.strings"
+       <resource-file src="src/ios/uk.lproj/Localizable.strings"
       target="uk.lproj/Localizable.strings" />
-    <resource-file src="src/ios/en.lproj/Localizable.strings"
+    <resource-file src="src/ios/ru.lproj/Localizable.strings"
       target="ru.lproj/Localizable.strings" />
   </platform>
   <platform name="android">
