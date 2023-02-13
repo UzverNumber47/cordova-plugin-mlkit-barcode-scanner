@@ -27,13 +27,17 @@
     </config-file>
     <config-file target="*-Info.plist"
       parent="CFBundleDevelopmentRegion">
-      <string>de_DE</string>
+      <string>en_US</string>
     </config-file>
     <config-file target="*-Info.plist"
       parent="CFBundleLocalizations">
       <array>
         <string>en</string>
+        <string>fr</string>
         <string>de</string>
+        <string>pl</string>
+        <string>uk</string>
+        <string>ru</string>
       </array>
     </config-file>
 
@@ -55,9 +59,17 @@
     <source-file src="src/ios/CameraViewController.m" />
     <resource-file src="src/ios/Sounds/beep.caf" />
     <resource-file src="src/ios/de.lproj/Localizable.strings"
-      target="de.lproj/Localizable.strings" />
-    <resource-file src="src/ios/en.lproj/Localizable.strings"
       target="en.lproj/Localizable.strings" />
+    <resource-file src="src/ios/en.lproj/Localizable.strings"
+      target="de.lproj/Localizable.strings" />
+       <resource-file src="src/ios/de.lproj/Localizable.strings"
+      target="fr.lproj/Localizable.strings" />
+    <resource-file src="src/ios/en.lproj/Localizable.strings"
+      target="pl.lproj/Localizable.strings" />
+       <resource-file src="src/ios/de.lproj/Localizable.strings"
+      target="uk.lproj/Localizable.strings" />
+    <resource-file src="src/ios/en.lproj/Localizable.strings"
+      target="ru.lproj/Localizable.strings" />
   </platform>
   <platform name="android">
     <dependency id="cordova-plugin-androidx-adapter"
