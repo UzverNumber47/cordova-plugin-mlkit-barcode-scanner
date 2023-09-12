@@ -438,27 +438,30 @@ public class CaptureActivity extends AppCompatActivity implements SurfaceHolder.
       diameter -= offset;
 
       canvas = holder.lockCanvas();
-      canvas.drawColor(0, PorterDuff.Mode.CLEAR);
-      // border's properties
-      paint = new Paint();
-      paint.setStyle(Paint.Style.STROKE);
-      paint.setColor(color);
-      paint.setStrokeWidth(5);
 
-      left = width / 2 - diameter / 2;
-      top = height / 2 - diameter / 2;
-      right = width / 2 + diameter / 2;
-      bottom = height / 2 + diameter / 2;
+      if (canvas != null) {
+        canvas.drawColor(0, PorterDuff.Mode.CLEAR);
+        // border's properties
+        paint = new Paint();
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setColor(color);
+        paint.setStrokeWidth(5);
 
-      // Changing the value of x in diameter/x will change the size of the box ;
-      // inversely proportionate to x
-      if (DetectorSize <= 0.3) {
-        canvas.drawRect(new RectF(left, top, right, bottom), paint);
-      } else {
-        canvas.drawRoundRect(new RectF(left, top, right, bottom), 100, 100, paint);
+        left = width / 2 - diameter / 2;
+        top = height / 2 - diameter / 2;
+        right = width / 2 + diameter / 2;
+        bottom = height / 2 + diameter / 2;
+
+        // Changing the value of x in diameter/x will change the size of the box ;
+        // inversely proportionate to x
+        if (DetectorSize <= 0.3) {
+          canvas.drawRect(new RectF(left, top, right, bottom), paint);
+        } else {
+          canvas.drawRoundRect(new RectF(left, top, right, bottom), 100, 100, paint);
+        }
+
+        holder.unlockCanvasAndPost(canvas);
       }
-
-      holder.unlockCanvasAndPost(canvas);
     }
 
   }
