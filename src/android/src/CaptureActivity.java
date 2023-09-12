@@ -127,15 +127,15 @@ public class CaptureActivity extends AppCompatActivity implements SurfaceHolder.
     _TorchButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-
-        LiveData<Integer> flashState = camera.getCameraInfo().getTorchState();
-        if (flashState.getValue() != null) {
-          boolean state = flashState.getValue() == 1;
-          _TorchButton.setBackgroundResource(getResources().getIdentifier(!state ? "torch_active" : "torch_inactive",
-              "drawable", CaptureActivity.this.getPackageName()));
-          camera.getCameraControl().enableTorch(!state);
+        if (camera != null) {
+          LiveData<Integer> flashState = camera.getCameraInfo().getTorchState();
+          if (flashState.getValue() != null) {
+            boolean state = flashState.getValue() == 1;
+            _TorchButton.setBackgroundResource(getResources().getIdentifier(!state ? "torch_active" : "torch_inactive",
+                "drawable", CaptureActivity.this.getPackageName()));
+            camera.getCameraControl().enableTorch(!state);
+          }
         }
-
       }
     });
 
