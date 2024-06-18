@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">EatFit</string>
+    <string name="launcher_name">@string/app_name</string>
+    <string name="activity_name">@string/launcher_name</string>
+    <string name="ok">OK</string>
+    <string name="permission_camera_rationale">Для сканування потрібен доступ до камери</string>
+    <string name="no_camera_permission">Сканер не може працювати, оскільки не має дозволу на доступ до камери. Сканер буде закрито.</string>
+    <string name="no_cameras_found">Пристрій не має камери.</string>
+    <string name="barcode_header">Натисніть "Сканувати штрих-код", щоб сканувати штрих-код</string>
+    <string name="read_barcode">Сканувати штрих-код</string>
+    <string name="auto_focus">Автофокус</string>
+    <string name="use_flash">Використовувати спалах</string>
+    <string name="barcode_success">Штрих-код успішно відскановано</string>
+    <string name="barcode_failure">Штрих-код не відскановано</string>
+    <string name="barcode_error">Помилка при скануванні штрих-коду: %1$s</string>
+</resources>

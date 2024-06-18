@@ -117,6 +117,16 @@
       target="res/values/strings.xml" />
     <resource-file src="src/android/res/values/strings-de.xml"
       target="res/values-de/strings.xml" />
+    <resource-file src="src/android/res/values/strings-fr.xml"
+      target="res/values-fr/strings.xml" />
+    <resource-file src="src/android/res/values/strings-es.xml"
+      target="res/values-es/strings.xml" />
+    <resource-file src="src/android/res/values/strings-pl.xml"
+      target="res/values-pl/strings.xml" />
+    <resource-file src="src/android/res/values/strings-ru.xml"
+      target="res/values-ru/strings.xml" />
+    <resource-file src="src/android/res/values/strings-uk.xml"
+      target="res/values-uk/strings.xml" />
     <resource-file src="src/android/res/layout/capture_activity.xml"
       target="res/layout/capture_activity.xml" />
     <resource-file src="src/android/res/drawable/flashlight.png"

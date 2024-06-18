@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">EatFit</string>
+    <string name="launcher_name">@string/app_name</string>
+    <string name="activity_name">@string/launcher_name</string>
+    <string name="ok">OK</string>
+    <string name="permission_camera_rationale">Pour la numérisation, l\'accès à la caméra est requis</string>
+    <string name="no_camera_permission">Le scanner ne peut pas fonctionner car il n\'a pas l\'autorisation d\'accéder à la caméra. Le scanner va se fermer.</string>
+    <string name="no_cameras_found">L\'appareil n\'a pas de caméra.</string>
+    <string name="barcode_header">Appuyez sur "Lire le code-barres" pour lire un code-barres</string>
+    <string name="read_barcode">Lire le code-barres</string>
+    <string name="auto_focus">Autofocus</string>
+    <string name="use_flash">Utiliser le flash</string>
+    <string name="barcode_success">Code-barres lu avec succès</string>
+    <string name="barcode_failure">Aucun code-barres capturé</string>
+    <string name="barcode_error">Erreur de lecture du code-barres : %1$s</string>
+</resources>

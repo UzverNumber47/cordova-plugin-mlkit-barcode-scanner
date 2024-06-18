@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">EatFit</string>
+    <string name="launcher_name">@string/app_name</string>
+    <string name="activity_name">@string/launcher_name</string>
+    <string name="ok">OK</string>
+    <string name="permission_camera_rationale">Do skanowania wymagany jest dostęp do aparatu</string>
+    <string name="no_camera_permission">Skaner nie może działać, ponieważ nie ma uprawnień do korzystania z aparatu. Skaner zostanie zamknięty.</string>
+    <string name="no_cameras_found">Urządzenie nie ma aparatu.</string>
+    <string name="barcode_header">Naciśnij "Skanuj kod kreskowy", aby zeskanować kod kreskowy</string>
+    <string name="read_barcode">Skanuj kod kreskowy</string>
+    <string name="auto_focus">Autofokus</string>
+    <string name="use_flash">Użyj lampy błyskowej</string>
+    <string name="barcode_success">Kod kreskowy został pomyślnie zeskanowany</string>
+    <string name="barcode_failure">Nie zeskanowano kodu kreskowego</string>
+    <string name="barcode_error">Błąd odczytu kodu kreskowego: %1$s</string>
+</resources>
